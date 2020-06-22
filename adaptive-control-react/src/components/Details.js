@@ -11,14 +11,22 @@ const map_status = (unit) => <div>
         In the policy presented, we restrict movement in each {unit} based on the following criteria:
         <br></br>
     </p>
-    <Table>
+    <Table size="sm" borderless={true}>
         <thead>
-            <tr style={{"text-align": "center"}}> <th>Policy Regime</th> <th>Trigger</th> <th>Description</th> </tr>
-            <tr> <td><Badge pill size="lg" variant="danger">  CRITICAL </Badge></td>  <td><i>R<sub>t</sub></i> &ge; 2 </td></tr>
-            <tr> <td><Badge pill size="lg" variant="warning">  MODERATE </Badge></td> <td><i>1 &le; R<sub>t</sub></i> &lt; 2 </td> </tr>
-            <tr> <td><Badge pill size="lg" variant="success"> IMPROVING </Badge></td> <td><i>R<sub>t</sub></i> &lt; 1</td> </tr>
+            <tr> <th>Policy Regime</th><th>Trigger</th></tr>
+            <tr> <td><Badge pill size="lg" variant="danger">CRITICAL</Badge></td><td><i>R<sub>t</sub></i> &ge; 2</td></tr>
+            <tr> <td><Badge pill size="lg" variant="warning">MODERATE</Badge></td><td><i>1 &le; R<sub>t</sub></i> &lt; 2 </td></tr>
+            <tr> <td><Badge pill size="lg" variant="success">IMPROVING</Badge></td><td><i>R<sub>t</sub></i> &lt; 1</td></tr>
         </thead>
     </Table>
+
+    {/* <p>
+    The adaptive nature of the policy means that districts falling under different categories will implement different measures based on estimated reproductive numbers. For example, a critical district may shut down all non-essential travel and require masks, while a green district may allow travel to adjacent green districts.
+    </p> */}
+
+    <p>
+    Our policy simulations use reproductive number as a trigger, but other triggers are possible (such as the infection count doubling time used by the Ministry of Home Affairs).
+    </p>
 </div>
 
 const map_Rt = (unit) => <div>

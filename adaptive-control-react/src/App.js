@@ -28,12 +28,12 @@ export default class App extends React.Component {
           <Row>
             <Col>
               <Card className="text-center" style={{"background-color": "#343a40", "opacity": 0.95}}> 
-                <Card.Header as="h1" className="text-white" style={{"background-color": "#343a40", "opacity": 0.95}}>
+                <Card.Body>
+                <h1 className="text-white" style={{"background-color": "#343a40", "opacity": 0.95}}>
                   {" "}
                   Adaptive Control of COVID-19 in India{" "}
-                </Card.Header>
-                <Card.Body>
-                  <Card.Subtitle as="h3" className="text-white">
+                </h1>
+                <Card.Subtitle as="h3" className="text-white">
                     {" "}
                     Tracking COVID-19 and recommending control efforts across states in India.
                   </Card.Subtitle>
@@ -97,7 +97,14 @@ export default class App extends React.Component {
                       </Row>
                     </Form>
                   </div>
-                  <div><Plot key={this.state.geography+this.state.vizType} viztype={this.state.vizType} geography={this.state.geography}/></div>
+                  {/* <Row style={{"height":"100%"}}> */}
+                  <div id="plotwrapper">
+                  <Plot key={this.state.geography+this.state.vizType} viztype={this.state.vizType} geography={this.state.geography}/>
+                      {/* <Col id="plotwrapper"> 
+                      
+                    </Col> */}
+                  </div>
+                  <Row><Col></Col></Row>
                 </Card.Body>
               </Card>
             </Col>
@@ -117,15 +124,13 @@ export default class App extends React.Component {
                 {cardHeader("COVIN Team")}
                 <Card.Body>
                   <p>
-                    The COVIN team is a group of academics from a number of universities (University of Chicago, MIT, Duke, Stanford, among others) that came
-                    together after the COVID pandemic struck to develop models and do empirical work to support the response to COVID in India.
+                    The COVIN team is a group of academics from a number of universities (University of Chicago, MIT, Duke, Stanford, among others) that came together after the COVID pandemic struck to develop models and do empirical work to support the response to COVID in India.
                   </p>
                   <p>
                     The parameter estimation and adaptive control model is built on work done by{" "}
                     <a href="https://twitter.com/bettencourtluis">Luis Bettencourt</a>, <a href="https://twitter.com/satejsoman">Satej Soman</a>, and{" "}
                     <a href="http://www.anupmalani.com/">Anup Malani</a> at the University of Chicago, with critical inputs from <a href="http://web.mit.edu/dikaiser/www/">David Kaiser</a>, <a href="https://economics.mit.edu/faculty/gruberj/short">Jon Gruber</a>, and
-                    Stuti Sachdeva at MIT; <a href="http://www.idfcinstitute.org/about/people/team/vaidehi-tandel/">Vaidehi Tandel at IDFC Institute</a>; <a href="https://sanford.duke.edu/people/faculty/mohanan-manoj">Manoj Mohanan</a> at Duke; and many others. It benefited from critical feedback from 
-                    <a href="https://sph.umich.edu/faculty-profiles/mukherjee-bhramar.html">Bhramar Mukherjee</a> at the University of Michigan as well as data analysis by <a href="https://sites.google.com/site/clemimbert/">Clément Imbert</a> at the University of Warwick and <a href="https://samuelasher.com/">Sam Asher</a> at Johns Hopkins. <a href="https://devavrat.mit.edu/">Devavrat Shah</a> and
+                    Stuti Sachdeva at MIT; <a href="http://www.idfcinstitute.org/about/people/team/vaidehi-tandel/">Vaidehi Tandel at IDFC Institute</a>; <a href="https://sanford.duke.edu/people/faculty/mohanan-manoj">Manoj Mohanan</a> at Duke; and many others. It benefited from critical feedback from{' '} <a href="https://sph.umich.edu/faculty-profiles/mukherjee-bhramar.html">Bhramar Mukherjee</a> at the University of Michigan as well as data analysis by <a href="https://sites.google.com/site/clemimbert/">Clément Imbert</a> at the University of Warwick and <a href="https://samuelasher.com/">Sam Asher</a> at Johns Hopkins. <a href="https://devavrat.mit.edu/">Devavrat Shah</a> and
                     his students at MIT played a critical role in validating our SIR model against a model that used their synthetic intervention methods.
                   </p>
                   <p>

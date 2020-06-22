@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.cf0c3dd5.chunk.css",
-    "main.js": "/static/js/main.137085dc.chunk.js",
-    "main.js.map": "/static/js/main.137085dc.chunk.js.map",
+    "main.css": "/static/css/main.688b1c4e.chunk.css",
+    "main.js": "/static/js/main.1714ce35.chunk.js",
+    "main.js.map": "/static/js/main.1714ce35.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.a4de62ce.js",
     "runtime-main.js.map": "/static/js/runtime-main.a4de62ce.js.map",
-    "static/js/2.810eed94.chunk.js": "/static/js/2.810eed94.chunk.js",
-    "static/js/2.810eed94.chunk.js.map": "/static/js/2.810eed94.chunk.js.map",
+    "static/js/2.a752242e.chunk.js": "/static/js/2.a752242e.chunk.js",
+    "static/js/2.a752242e.chunk.js.map": "/static/js/2.a752242e.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.220e27fffa860594e417d01fcb3c52b4.js": "/precache-manifest.220e27fffa860594e417d01fcb3c52b4.js",
+    "precache-manifest.9e5848f685be8cff56fb51f3864c9439.js": "/precache-manifest.9e5848f685be8cff56fb51f3864c9439.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.cf0c3dd5.chunk.css.map": "/static/css/main.cf0c3dd5.chunk.css.map",
-    "static/js/2.810eed94.chunk.js.LICENSE.txt": "/static/js/2.810eed94.chunk.js.LICENSE.txt",
+    "static/css/main.688b1c4e.chunk.css.map": "/static/css/main.688b1c4e.chunk.css.map",
+    "static/js/2.a752242e.chunk.js.LICENSE.txt": "/static/js/2.a752242e.chunk.js.LICENSE.txt",
     "static/media/AP_map_Rt.svg": "/static/media/AP_map_Rt.42e80d5e.svg",
     "static/media/AP_map_status.svg": "/static/media/AP_map_status.f6903b8f.svg",
     "static/media/AP_plot_I_rate.svg": "/static/media/AP_plot_I_rate.7cc02e6b.svg",
@@ -59,6 +59,8 @@
     "static/media/HR_plot_I_rate.svg": "/static/media/HR_plot_I_rate.b36b7eba.svg",
     "static/media/HR_plot_Rt.svg": "/static/media/HR_plot_Rt.f75b45ce.svg",
     "static/media/HR_plot_total_I.svg": "/static/media/HR_plot_total_I.6139c980.svg",
+    "static/media/IN_map_Rt.svg": "/static/media/IN_map_Rt.0ff8984c.svg",
+    "static/media/IN_map_status.svg": "/static/media/IN_map_status.6ea5fe68.svg",
     "static/media/IN_plot_I_rate.svg": "/static/media/IN_plot_I_rate.65fe9543.svg",
     "static/media/IN_plot_Rt.svg": "/static/media/IN_plot_Rt.c12b7984.svg",
     "static/media/IN_plot_total_I.svg": "/static/media/IN_plot_total_I.c443a187.svg",
@@ -149,8 +151,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.a4de62ce.js",
-    "static/js/2.810eed94.chunk.js",
-    "static/css/main.cf0c3dd5.chunk.css",
-    "static/js/main.137085dc.chunk.js"
+    "static/js/2.a752242e.chunk.js",
+    "static/css/main.688b1c4e.chunk.css",
+    "static/js/main.1714ce35.chunk.js"
   ]
 }

@@ -57,13 +57,25 @@ body .bg-dark {
     height: 40vw;
 }
 
+svg {
+    margin-top: auto!important;
+    margin-bottom: auto!important;
+    height: 100%!important;
+    width: auto!important;
+}
+
+svg text { 
+    font-family: "Fira Sans"!important;
+}
+
 
 .container {
     background-color: rgb(56, 56, 56, 0)!important;
 }
 
-#natmapjumbotron {
-    background-color: rgb(56, 56, 56, 0)!important;
+
+.plot_window { 
+    font-family: "Fira Sans";
 }
 
 body { 

@@ -15,11 +15,15 @@ const cardHeader = (name) => (
 );
 // style={{"background-color": 'rgba(28, 28, 28, 0.85)'}}
 // style={{}} 
+
+// "#343a40", 0.95
 export default class App extends React.Component {
   state = {
     vizType: "map_status",
     geography: "IN",
   };
+
+  
 
   render() {
     return (
@@ -33,9 +37,9 @@ export default class App extends React.Component {
                   {" "}
                   Adaptive Control of COVID-19 in India{" "}
                 </h1>
-                <Card.Subtitle as="h3" className="text-white">
+                <Card.Subtitle as="h3" className="text-light">
                     {" "}
-                    Tracking COVID-19 and recommending control efforts across states in India.
+                    Tracking disease and recommending control efforts across states and districts
                   </Card.Subtitle>
                 </Card.Body>
               </Card>
@@ -51,8 +55,8 @@ export default class App extends React.Component {
                       <Row>
                         <Col>
                           <Form.Group controlId="geoForm">
-                            <Form.Label as="h3" className="text-dark">
-                              Geography
+                            <Form.Label className="text-dark">
+                              <b>GEOGRAPHY</b>
                             </Form.Label>
                             <Form.Control
                               as="select"
@@ -72,8 +76,8 @@ export default class App extends React.Component {
                         </Col>
                         <Col>
                           <Form.Group controlId="vizForm">
-                            <Form.Label as="h3" className="text-dark">
-                              Visualization
+                            <Form.Label className="text-dark">
+                              <b>VISUALIZATION</b>
                             </Form.Label>
                             <Form.Control
                               as="select"
@@ -126,7 +130,7 @@ export default class App extends React.Component {
                   <p>
                     The COVIN team is a group of academics from a number of universities (University of Chicago, MIT, Duke, Stanford, among others) that came together after the COVID pandemic struck to develop models and do empirical work to support the response to COVID in India.
                   </p>
-                  <p>
+                  {/* <p>
                     The parameter estimation and adaptive control model is built on work done by{" "}
                     <a href="https://twitter.com/bettencourtluis">Luis Bettencourt</a>, <a href="https://twitter.com/satejsoman">Satej Soman</a>, and{" "}
                     <a href="http://www.anupmalani.com/">Anup Malani</a> at the University of Chicago, with critical inputs from <a href="http://web.mit.edu/dikaiser/www/">David Kaiser</a>, <a href="https://economics.mit.edu/faculty/gruberj/short">Jon Gruber</a>, and
@@ -136,7 +140,7 @@ export default class App extends React.Component {
                   <p>
                     Additional analysis, visualization, and engineering was done by Nico Marchio, Manasi Phadnis, Caitlin Loftus, Ananya Karanam, and Thomas
                     Weil (all at the University of Chicago).
-                  </p>
+                  </p> */}
                 </Card.Body>
               </Card>
             </Col>
@@ -159,7 +163,7 @@ export default class App extends React.Component {
                 <Card.Body>
                   <p>
                     The methods used to forecast infections and reproductive rate, as well as recommendations for control, are described in detail in
-                    WHITEPAPER.
+                    our forthcoming whitepaper.
                   </p>
                 </Card.Body>
               </Card>

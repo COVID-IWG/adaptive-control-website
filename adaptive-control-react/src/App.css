@@ -77,7 +77,8 @@ svg {
 }  */
 
 svg text { 
-    font-family: "Fira Sans"!important;
+    /* font-family: "Fira Sans"!important; */
+    font-family: "Helvetica Neue"!important;
 }
 
 

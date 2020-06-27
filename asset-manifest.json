@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.6caa54a7.chunk.css",
-    "main.js": "/static/js/main.1a4f98e3.chunk.js",
-    "main.js.map": "/static/js/main.1a4f98e3.chunk.js.map",
+    "main.css": "/static/css/main.70c95f47.chunk.css",
+    "main.js": "/static/js/main.604d6815.chunk.js",
+    "main.js.map": "/static/js/main.604d6815.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.a4de62ce.js",
     "runtime-main.js.map": "/static/js/runtime-main.a4de62ce.js.map",
-    "static/js/2.59d9a91b.chunk.js": "/static/js/2.59d9a91b.chunk.js",
-    "static/js/2.59d9a91b.chunk.js.map": "/static/js/2.59d9a91b.chunk.js.map",
+    "static/js/2.33632bc8.chunk.js": "/static/js/2.33632bc8.chunk.js",
+    "static/js/2.33632bc8.chunk.js.map": "/static/js/2.33632bc8.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.477ce4854282eb95e50cca75c0809f64.js": "/precache-manifest.477ce4854282eb95e50cca75c0809f64.js",
+    "precache-manifest.20236d62cffca0d211046e71785aa44d.js": "/precache-manifest.20236d62cffca0d211046e71785aa44d.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.6caa54a7.chunk.css.map": "/static/css/main.6caa54a7.chunk.css.map",
-    "static/js/2.59d9a91b.chunk.js.LICENSE.txt": "/static/js/2.59d9a91b.chunk.js.LICENSE.txt",
+    "static/css/main.70c95f47.chunk.css.map": "/static/css/main.70c95f47.chunk.css.map",
+    "static/js/2.33632bc8.chunk.js.LICENSE.txt": "/static/js/2.33632bc8.chunk.js.LICENSE.txt",
     "static/media/AP_map_Rt.svg": "/static/media/AP_map_Rt.aa6b0674.svg",
     "static/media/AP_map_status.svg": "/static/media/AP_map_status.47fbe84a.svg",
     "static/media/AP_plot_I_rate.svg": "/static/media/AP_plot_I_rate.e5d9e320.svg",
@@ -149,12 +149,13 @@
     "static/media/WB_map_status.svg": "/static/media/WB_map_status.8e45df5e.svg",
     "static/media/WB_plot_I_rate.svg": "/static/media/WB_plot_I_rate.138c7c39.svg",
     "static/media/WB_plot_Rt.svg": "/static/media/WB_plot_Rt.d2b42d09.svg",
-    "static/media/WB_plot_total_I.svg": "/static/media/WB_plot_total_I.c1facaeb.svg"
+    "static/media/WB_plot_total_I.svg": "/static/media/WB_plot_total_I.c1facaeb.svg",
+    "static/media/adaptive_control_whitepaper.pdf": "/static/media/adaptive_control_whitepaper.ba860c78.pdf"
   },
   "entrypoints": [
     "static/js/runtime-main.a4de62ce.js",
-    "static/js/2.59d9a91b.chunk.js",
-    "static/css/main.6caa54a7.chunk.css",
-    "static/js/main.1a4f98e3.chunk.js"
+    "static/js/2.33632bc8.chunk.js",
+    "static/css/main.70c95f47.chunk.css",
+    "static/js/main.604d6815.chunk.js"
   ]
 }

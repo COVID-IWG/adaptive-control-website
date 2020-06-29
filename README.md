@@ -1,7 +1,7 @@
 # adaptive-control-website
 
 ## overview 
-This is the code for the (Adaptive Control website)[https://adaptivecontrol.org]
+This is the code for the [https://adaptivecontrol.org](Adaptive Control website)
 
 The site is built with Node, React, Bootstrap, Recharts, and Leaflet. We deploy on Netlify to a Google Domains-managed domain.
 

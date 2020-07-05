@@ -1,5 +1,7 @@
 # adaptive-control-website
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d02c27a2-f513-4754-a318-f3fef903a3ce/deploy-status)](https://app.netlify.com/sites/silly-lewin-dc07e2/deploys)
+
 ## overview 
 This is the code for the [Adaptive Control website](https://adaptivecontrol.org)
 

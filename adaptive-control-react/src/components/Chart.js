@@ -35,11 +35,8 @@ class Chart extends React.Component {
         console.log("rendering chart")
         if (this.state.data === null)
             return <p>l o a d i n g . . .</p>
-        console.log(this.props.geography)
-        console.log(this.props.viztype)
         var geography = (this.props.geography === "IN") ? "TT" : this.props.geography;
         // var key = "chart_" + geography + "_" + this.props.viztype
-        console.log(this.state.data[geography])
         var data = this.state.data[geography]
         return <>
         <div>blorp geo={geography} viz={this.props.viztype}</div>
@@ -49,7 +46,6 @@ class Chart extends React.Component {
             <XAxis dataKey="date" />
             <YAxis />
             <Tooltip />
-            <Legend />
             <Line type="monotone" dataKey={this.props.viztype} stroke="#8884d8" activeDot={{ r: 8 }} />
         </LineChart>
         </ResponsiveContainer>

@@ -12,7 +12,7 @@ const StaticBoxes = () => <><Row>
             <p>
                 The COVIN team is a group of academics from a number of universities (University of Chicago, MIT, Duke, Stanford, among others) that came together after the COVID pandemic struck to develop models and do empirical work to support the response to COVID in India.
             </p>
-            {/* <p>
+            <p>
                 The parameter estimation and adaptive control model is built on work done by{" "}
                 <a href="https://twitter.com/bettencourtluis">Luis Bettencourt</a>, <a href="https://twitter.com/satejsoman">Satej Soman</a>, and{" "}
                 <a href="http://www.anupmalani.com/">Anup Malani</a> at the University of Chicago, with critical inputs from <a href="http://web.mit.edu/dikaiser/www/">David Kaiser</a>, <a href="https://economics.mit.edu/faculty/gruberj/short">Jon Gruber</a>, and
@@ -22,7 +22,7 @@ const StaticBoxes = () => <><Row>
             <p>
                 Additional analysis, visualization, and engineering was done by Nico Marchio, Manasi Phadnis, Caitlin Loftus, Ananya Karanam, and Thomas
                 Weil (all at the University of Chicago).
-            </p> */}
+            </p>
             </Card.Body>
         </Card>
         </Col>

@@ -35,6 +35,16 @@ const map_Rt = (unit) => <div>
 For a given infectious disease, the <b>reproductive rate</b> (<i>R<sub>t</sub></i>) is the number of additional cases in a community that a single person creates. When <i>R<sub>t</sub></i> is less than 1, a disease's spread is manageable. Conversely, when the reproductive number exceeds 1, the number of people infected grows exponentially. An adaptive control policy estimates <i>R<sub>t</sub></i> for a given locale and makes per-{unit} determinations about which activities will be allowed to control the spread of the virus.
 </p>
 <p>This map shows the estimated <i>R<sub>t</sub></i> for each {unit}. Our methods for estimating the reproductive number are described in the whitepaper linked in the "Methods" section.</p> 
+<Table size="sm" borderless={true}>
+        <thead>
+            <tr> <th>Color</th><th><i>R<sub>t</sub></i></th></tr>
+            <tr> <td><Badge pill style={{"background-color": "#5b7dff"}} size="lg"><div style={{"opacity": 0}}>.</div></Badge></td><td>0</td></tr>
+            <tr> <td><Badge pill style={{"background-color": "#6610f2"}} size="lg"><div style={{"opacity": 0}}>.</div></Badge></td><td>2</td></tr>
+            <tr> <td><Badge pill style={{"background-color": "#6f42c1"}} size="lg"><div style={{"opacity": 0}}>.</div></Badge></td><td>5</td></tr>
+            <tr> <td><Badge pill style={{"background-color": "#BFBFBF"}} size="lg"><div style={{"opacity": 0}}>.</div></Badge></td><td>Missing</td></tr>
+        </thead>
+    </Table>
+
 </div> 
 const plot_Rt = (unit) => <div>
 <Card.Title className="italic">Reproductive rate over time</Card.Title>

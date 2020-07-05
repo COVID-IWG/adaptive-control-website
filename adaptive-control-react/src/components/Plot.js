@@ -1,6 +1,7 @@
 import React from "react";
 import SVG from 'react-inlinesvg';
-// import plot from './data/AP_plot_Rt.svg'
+import {LineChart, XAxis, YAxis, Tooltip, Line, CartesianGrid, ResponsiveContainer} from "recharts";
+
 
 export const state_codes = {
     // "AN": "Andaman and Nicobar Islands",
@@ -35,52 +36,65 @@ export const state_codes = {
     "WB": "West Bengal",
 }
 
-
 class Plot extends React.Component { 
     constructor(props) {
         super(props);
         this.svgRef = React.createRef();  
+        this.state = { data: null };
+      }
+     
+    componentDidMount() {
+        fetch('https://api.covid19india.org/v3/timeseries.json')
+            .then(response => response.json())
+            .then(data => {
+                var flattened = {}  
+                Object.keys(data).forEach((state, _) => {
+                    var ts = []
+                    Object.keys(data[state]).forEach((date, _) => {
+                        var total = data[state][date]["total"] || {}
+                        ts.push({
+                            "date": date, 
+                            "confirmed": total["confirmed"] || 0,
+                            "recovered": total["recovered"] || 0,
+                            "tested":    total["tested"]    || 0,
+                            "deceased":  total["deceased"]  || 0
+                        })
+                    })
+                    flattened[state] = ts
+                })
+            this.setState({ data: flattened })
+        });
     }
+
     
     render() {
-        // if (this.props.geography === "IN" && (this.props.viztype === "map_Rt" || this.props.viztype === "map_status"))
-        //     return <div>l o a d i n g . . .</div>
         const plotKey  = "plot_" + this.props.geography
 
-        return <SVG  
-            innerRef={this.svgRef}
-            key={plotKey} 
-            // class="svg_parent"
-            src={require("./data/" + this.props.geography +"_" + this.props.viztype + ".svg")}
-            onError={(e) => console.log(e)}
-            onLoad={(x) => {
-                const node = this.svgRef.current;
-                console.log(node)
-                // node.setAttribute("preserveAspectRatio", "none")
-                // node.setAttribute("width", "auto")
-                // node.setAttribute("viewBox", "0 0 900 400")
-                console.log(node)
-            }}
-        />
+        if (this.props.viztype.startsWith("map")) {
+            return <SVG  
+                innerRef={this.svgRef}
+                key={plotKey} 
+                src={require("./data/" + this.props.geography +"_" + this.props.viztype + ".svg")}
+                onError={(e) => console.log(e)}
+            />
         }
+        if (this.state.data === null)
+            return <p>l o a d i n g . . .</p>
+        var geography = (this.props.geography === "IN") ? "TT" : this.props.geography;
+        var data = this.state.data[geography]
+        return <>
+        <ResponsiveContainer width="95%" height="80%">
+        <LineChart data={data} margin={{left: 20, right: 20, bottom: 20, top: 20}}>
+            <CartesianGrid /> 
+            {/* strokeDasharray="3 3" /> */}
+            <XAxis dataKey="date" tick={{fontFamily: 'Fira Code'}}/>
+            <YAxis tick={{fontFamily: 'Fira Code'}}/>
+            <Tooltip />
+            <Line type="natural" dataKey={this.props.viztype.replace("chart_", "")} stroke="#343a40" dot={false} activeDot={{ r: 4 }} />
+        </LineChart>
+        </ResponsiveContainer> 
+        </>
     }
-
-// const Plot = ({viztype, geography}) => {
-//     if (geography === "IN" && (viztype === "map_Rt" || viztype === "map_status"))
-//         return <p>l o a d i n g . . .</p>
-//     const plotKey  = "plot_" + geography
-
-//     return <SVG  
-//         key={plotKey} 
-//         class="my-auto mx_auto"
-//         src={require("./data/" + geography +"_" + viztype + ".svg")}
-//         onError={(e) => console.log(e)}
-//         onLoad={(x) => {
-//             console.log(x)
-//             console.log(this)
-//         }}
-//     />
-    
-// }
+}
 
 export default Plot;

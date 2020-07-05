@@ -1,7 +1,3 @@
-/* .App {
-  text-align: center;
-} */
-
 @import './corporate.css';
 
 .App-logo {
@@ -57,28 +53,12 @@ body .bg-dark {
 }
 
 svg {
-    /* margin-top: auto!important; */
     margin-bottom: auto!important;
     width:100%;
-    /* height: 100%!important;
-    width: auto!important; */
 }
 
-/* #plotwrapper { 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* height:90%; */
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width:auto; 
-}  */
-
 svg text { 
-    /* font-family: "Fira Sans"!important; */
-    font-family: "Helvetica Neue"!important;
+    font-family: "Fira Sans"!important;
 }
 
 

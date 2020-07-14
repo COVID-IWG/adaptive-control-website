@@ -1,6 +1,5 @@
 import React from "react";
-import SVG from 'react-inlinesvg';
-import {LineChart, XAxis, YAxis, Tooltip, Line, CartesianGrid, ResponsiveContainer} from "recharts";
+import {XAxis, YAxis, Tooltip, Line, CartesianGrid, ResponsiveContainer, Area, ComposedChart, ReferenceLine, Label} from "recharts";
 
 
 export const state_codes = {
@@ -39,8 +38,10 @@ export const state_codes = {
 class Plot extends React.Component { 
     constructor(props) {
         super(props);
-        this.svgRef = React.createRef();  
-        this.state = { data: null };
+        this.state = { 
+            c19in_data: null,
+            rt_data: null
+        };
       }
      
     componentDidMount() {
@@ -57,42 +58,49 @@ class Plot extends React.Component {
                             "confirmed": total["confirmed"] || 0,
                             "recovered": total["recovered"] || 0,
                             "tested":    total["tested"]    || 0,
+                            "active":    total["active"]    || 0,
                             "deceased":  total["deceased"]  || 0
                         })
                     })
                     flattened[state] = ts
                 })
-            this.setState({ data: flattened })
+            this.setState({ c19in_data: flattened })
         });
+        fetch("https://spreadsheets.google.com/feeds/list/17sDFb2DwplJX8A7bRdYvlEJdhRgsVpE44nQpNKWR6jM/1/public/full?alt=json")
+            .then(response => response.json())
+            .then(data => {
+                var grouped = data.feed.entry.reduce(
+                    (entryMap, e) => entryMap.set(e.gsx$state.$t, [...entryMap.get(e.gsx$state.$t)||[], {
+                        "date": e.gsx$date.$t, 
+                        "Rt": e.gsx$rt.$t,
+                        "CI": [e.gsx$rtlower.$t, e.gsx$rtupper.$t]
+                    }]),
+                    new Map()
+                );
+                this.setState({ rt_data: grouped })
+            });
     }
 
-    
-    render() {
-        const plotKey  = "plot_" + this.props.geography
-
-        if (this.props.viztype.startsWith("map")) {
-            return <SVG  
-                innerRef={this.svgRef}
-                key={plotKey} 
-                src={require("./data/" + this.props.geography +"_" + this.props.viztype + ".svg")}
-                onError={(e) => console.log(e)}
-            />
-        }
-        if (this.state.data === null)
+    render() { 
+        if (this.state.c19in_data === null || this.state.rt_data === null)
             return <p>l o a d i n g . . .</p>
         var geography = (this.props.geography === "IN") ? "TT" : this.props.geography;
-        var data = this.state.data[geography]
+        var vizType = this.props.vizType.split("_")[1]
+        var data = vizType === "Rt" ? this.state.rt_data.get(geography) : this.state.c19in_data[geography];
         return <>
-        <ResponsiveContainer width="95%" height="80%">
-        <LineChart data={data} margin={{left: 20, right: 20, bottom: 20, top: 20}}>
-            <CartesianGrid /> 
-            {/* strokeDasharray="3 3" /> */}
-            <XAxis dataKey="date" tick={{fontFamily: 'Fira Code'}}/>
-            <YAxis tick={{fontFamily: 'Fira Code'}}/>
+        <ResponsiveContainer>
+        <ComposedChart data={data} margin={{top: 5, right: 50, left: 50, bottom: 5}}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="date" />
+            <YAxis domain={[0, 6]}/>
             <Tooltip />
-            <Line type="natural" dataKey={this.props.viztype.replace("chart_", "")} stroke="#343a40" dot={false} activeDot={{ r: 4 }} />
-        </LineChart>
-        </ResponsiveContainer> 
+            <Line type="monotone" dataKey={vizType} stroke="#354052" activeDot={{ r: 4 }} dot={false}/>
+            <Area type="monotone" dataKey="CI" fill="#354052" stroke="#8884d8" opacity="0.3"/>
+            <ReferenceLine y={vizType === "Rt" ? 1 : 0} stroke="#8884d8" opacity={vizType === "Rt" ? 1.0 : 0.0}>
+            <Label value={vizType === "Rt" ? "CRITICAL" : ""} position="left" />
+            </ReferenceLine>
+        </ComposedChart>
+        </ResponsiveContainer>
         </>
     }
 }

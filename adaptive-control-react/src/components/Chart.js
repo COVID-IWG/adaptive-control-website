@@ -1,10 +1,22 @@
 import React from "react";
 import {LineChart, XAxis, YAxis, Tooltip, Legend, Line, CartesianGrid, ResponsiveContainer} from "recharts";
 
+
+function getCovidApiData() {
+
+}
+
+function getSpreadsheetData() { 
+
+}
+
 class Chart extends React.Component { 
     constructor(props) {
         super(props);
-        this.state = { data: null };
+        this.state = { 
+            c19in_data: null,
+            rt_data: null
+        };
       }
      
     componentDidMount() {
@@ -27,21 +39,32 @@ class Chart extends React.Component {
                     })
                     flattened[state] = ts
                 })
-            this.setState({ data: flattened })
+            this.setState({ c19in_data: flattened })
         });
+        fetch("https://spreadsheets.google.com/feeds/list/17sDFb2DwplJX8A7bRdYvlEJdhRgsVpE44nQpNKWR6jM/1/public/full?alt=json")
+            .then(response => { 
+                alert("spreadsheet stuff");
+                console.log("spreadsheet stuff");
+                console.log(Object.keys(response));
+                response["feed"]["entry"];
+            })
+            .then(data => {
+                console.log(data);
+                this.setState({rt_data: data})
+            });
     }
 
     render() { 
         console.log("rendering chart")
-        if (this.state.data === null)
+        if (this.state.c19in_data === null)
             return <p>l o a d i n g . . .</p>
         var geography = (this.props.geography === "IN") ? "TT" : this.props.geography;
-        // var key = "chart_" + geography + "_" + this.props.viztype
-        var data = this.state.data[geography]
+        var key = "chart_" + geography + "_" + this.props.viztype
+        var data = this.state.c19in_data[geography]
         return <>
         <div>blorp geo={geography} viz={this.props.viztype}</div>
         <ResponsiveContainer>
-        <LineChart data={data} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+        <LineChart key={key} data={data} margin={{top: 5, right: 50, left: 50, bottom: 5}}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="date" />
             <YAxis />

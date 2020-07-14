@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600");
-@import url("https://fonts.googleapis.com/css?family=Nunito:400,600");
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600");
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
@@ -37,7 +37,7 @@
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
   --breakpoint-xxl: 1440px;
-  --font-family-sans-serif: "Fira Sans", "Helvetica Neue", "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-family-sans-serif: "Libre Franklin", "Fira Sans", "Helvetica Neue", "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
 *,
@@ -56,7 +56,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "Fira Sans", "Helvetica Neue", "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Libre Franklin", "Fira Sans", "Helvetica Neue", "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
@@ -156,7 +156,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: "Fira Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: "Libre Franklin", "Fira Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 1em; }
 
 pre {

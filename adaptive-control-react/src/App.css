@@ -58,7 +58,8 @@ svg {
 }
 
 svg text { 
-    font-family: "Fira Sans"!important;
+    /* font-family: "Fira Sans"!important; */
+    font-family: "Libre Franklin"!important;
 }
 
 
@@ -68,7 +69,8 @@ svg text {
 
 
 .plot_window { 
-    font-family: "Fira Sans";
+    /* font-family: "Fira Sans"; */
+    font-family: "Libre Franklin";
 }
 
 body { 

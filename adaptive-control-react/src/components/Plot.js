@@ -1,6 +1,6 @@
 import React from "react";
 import {XAxis, YAxis, Tooltip, Line, CartesianGrid, ResponsiveContainer, Area, ComposedChart, ReferenceLine, Label} from "recharts";
-
+import moment from 'moment'
 
 export const state_codes = {
     // "AN": "Andaman and Nicobar Islands",
@@ -91,7 +91,7 @@ class Plot extends React.Component {
         <ResponsiveContainer>
         <ComposedChart data={data} margin={{top: 5, right: 50, left: 50, bottom: 5}}>
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="date" />
+            <XAxis dataKey="date" tickFormatter={timestr => moment(timestr).format('MMM DD')}/>
             <YAxis domain={[0, 6]}/>
             <Tooltip />
             <Line type="monotone" dataKey={vizType} stroke="#354052" activeDot={{ r: 4 }} dot={false}/>

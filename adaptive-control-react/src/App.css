@@ -45,11 +45,11 @@ body .bg-dark {
 }
 
 #detail_box {
-    height: 42vw;
+    height: 35vw;
 }
 
 #viz_box {
-    height: 42vw;
+    height: 35vw;
 }
 
 svg {
@@ -75,4 +75,5 @@ svg text {
 
 body { 
     padding-top: 20px; 
+    padding-bottom: 20px;
 } 

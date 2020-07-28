@@ -53,11 +53,11 @@ For a given infectious disease, the <b>reproductive rate</b> (<i>R<sub>t</sub></
 </p>
 <p>This plot shows the estimated <i>R<sub>t</sub></i> as a function of time. 
 
-The black line is an estimate of the reproductive number as each date for the given data available. The 95% confidence interval of our estimate is shown in shaded gray. 
+The black line is an estimate of the reproductive number as each date for the given data available. The 95% confidence interval of our estimate is shown in gray. When case counts fall outside our expected confidence interval, we perform a Bayesian update step to account for the new rise/fall in cases, leading to an occasional increase in the confidence interval width.
 {/* The blue line is a 5-day linear projection of the estimated reproductive number based on the 5 most recent days of data. */}
 {" "}
-Our methods for estimating the reproductive number are described in more detail in the whitepaper linked in the "Methods" section.</p> 
-</div> 
+Our reproductive number estimation methods are described in more detail in the whitepaper linked in the "Methods" section.</p> 
+</div>
 
 const plot_confirmed = (unit) => {return (<div>
 <Card.Title className="italic">Active infections over time</Card.Title>

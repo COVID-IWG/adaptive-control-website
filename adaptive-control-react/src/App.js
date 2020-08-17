@@ -69,6 +69,10 @@ export default class App extends React.Component {
                                 <option value="chart_recovered">Recovered Cases</option>
                                 <option value="chart_deceased">Deceased Cases</option>
                                 <option value="chart_tested">Number Tested</option>
+                                <option value="chart_infection_rate">Infection Rate</option>
+                                <option value="chart_recovery_rate">Recovery Rate</option>
+                                <option value="chart_active_per_mn">Active Per Million</option>
+                                <option value="chart_cfr">Case Fatality Rate</option>
                               {/* </optgroup> */}
                               {/* <optgroup label="Maps"> */}
                                 {/* <option value="map_status">Adaptive Control Status</option> */}

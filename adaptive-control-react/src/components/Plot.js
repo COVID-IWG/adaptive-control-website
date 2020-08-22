@@ -10,19 +10,19 @@ import moment from 'moment'
 
 export const state_codes = {
     // "AN": "Andaman and Nicobar Islands",
-    // "CH": "Chandigarh",
-    // "AR": "Arunachal Pradesh",
+    "CH": "Chandigarh",
+    "AR": "Arunachal Pradesh",
     "AP": "Andhra Pradesh",
     "AS": "Assam",
     "BR": "Bihar",
-    // "CT": "Chhattisgarh",
+    "CT": "Chhattisgarh",
     "DL": "Delhi",
     "GA": "Goa",
     "GJ": "Gujarat",
     "HR": "Haryana",
-    // "HP": "Himachal Pradesh",
-    // "JK": "Jammu and Kashmir",
-    // "JH": "Jharkhand",
+    "HP": "Himachal Pradesh",
+    "JK": "Jammu and Kashmir",
+    "JH": "Jharkhand",
     "KA": "Karnataka",
     "KL": "Kerala",
     "MP": "Madhya Pradesh",
@@ -32,13 +32,19 @@ export const state_codes = {
     "OR": "Odisha",
     "PB": "Punjab",
     "RJ": "Rajasthan",
-    "SK": "Sikkim",
+    // "SK": "Sikkim",
     "TN": "Tamil Nadu",
     "TG": "Telangana",
-    // "TR": "Tripura",
+    "TR": "Tripura",
     "UP": "Uttar Pradesh",
     "UT": "Uttarakhand",
     "WB": "West Bengal",
+}
+
+const ymax = { 
+    "Rt" : 4,
+    "cfr": 0.2,
+    "recoveryrate": 0.01
 }
 
 class Plot extends React.Component { 
@@ -50,32 +56,32 @@ class Plot extends React.Component {
       }
      
     componentDidMount() {
-        fetch("https://spreadsheets.google.com/feeds/list/17sDFb2DwplJX8A7bRdYvlEJdhRgsVpE44nQpNKWR6jM/1/public/full?alt=json")
+        fetch("https://spreadsheets.google.com/feeds/list/17sDFb2DwplJX8A7bRdYvlEJdhRgsVpE44nQpNKWR6jM/2/public/full?alt=json")
             .then(response => response.json())
             .then(data => {
                 var grouped = data.feed.entry.reduce(
                     (entryMap, e) => entryMap.set(e.gsx$state.$t, [...entryMap.get(e.gsx$state.$t)||[], {
                         "date": e.gsx$date.$t,
-                        "Rt": e.gsx$rt.$t,
-                        "CI": [e.gsx$rtlower.$t, e.gsx$rtupper.$t],
-                        "cases": e.gsx$cases.$t,
-                        "total_cases": e.gsx$total_cases.$t,
-                        "recovered": e.gsx$recovered.$t,
-                        "total_recovered": e.gsx$total_recovered.$t,
-                        "deceased": e.gsx$deceased.$t,
-                        "total_deceased": e.gsx$total_deceased.$t,
-                        "tested": e.gsx$tested.$t,
-                        "total_tested": e.gsx$total_tested.$t,
-                        "cfr": e.gsx$cfr.$t,
-                        "total_cfr": e.gsx$total_cfr.$t,
-                        "active": e.gsx$active.$t,
-                        "total_active": e.gsx$total_active.$t,
-                        "active_per_mn": e.gsx$active_per_mn.$t,
-                        "total_active_per_mn": e.gsx$total_active_per_mn.$t,
-                        "recovery_rate": e.gsx$recovery_rate.$t,
-                        "total_recovery_rate": e.gsx$total_recovery_rate.$t,
-                        "infection_rate": e.gsx$infection_rate.$t,
-                        "total_infection_rate": e.gsx$total_infection_rate.$t
+                        "Rt": parseFloat(e.gsx$rt.$t),
+                        "CI": [parseFloat(e.gsx$rtlower.$t), parseFloat(e.gsx$rtupper.$t)],
+                        "confirmed": parseFloat(e.gsx$cases.$t),
+                        "total_confirmed": parseFloat(e.gsx$totalcases.$t),
+                        "recovered": parseFloat(e.gsx$recovered.$t),
+                        "total_recovered": parseFloat(e.gsx$totalrecovered.$t),
+                        "deceased": parseFloat(e.gsx$deceased.$t),
+                        "total_deceased": parseFloat(e.gsx$totaldeceased.$t),
+                        "tested": parseFloat(e.gsx$tested.$t),
+                        "total_tested": parseFloat(e.gsx$totaltested.$t),
+                        "cfr": parseFloat(e.gsx$cfr.$t),
+                        "total_cfr": parseFloat(e.gsx$totalcfr.$t),
+                        "active": parseFloat(e.gsx$active.$t),
+                        "total_active": parseFloat(e.gsx$totalactive.$t),
+                        "active_per_mn": parseFloat(e.gsx$activepermn.$t),
+                        "total_active_per_mn": parseFloat(e.gsx$totalactivepermn.$t),
+                        "recovery_rate": parseFloat(e.gsx$recoveryrate.$t),
+                        "total_recovery_rate": parseFloat(e.gsx$totalrecoveryrate.$t),
+                        "infection_rate": parseFloat(e.gsx$infectionrate.$t),
+                        "total_infection_rate": parseFloat(e.gsx$totalinfectionrate.$t)
                     }]),
                     new Map()
                 );
@@ -86,21 +92,22 @@ class Plot extends React.Component {
     render() { 
         if (this.state.data === null)
             return <p>l o a d i n g . . .</p>
-        var geography = (this.props.geography === "IN") ? "TT" : this.props.geography;
         var vizType = this.props.vizType.replace("chart_", "")
-        var data = this.state.data[geography];
+        var geography = this.props.geography
+        var data = this.state.data.get(geography);
+        var ym = ymax[vizType] || 'dataMax'
         return <>
         <ResponsiveContainer>
         <ComposedChart data={data} margin={{top: 5, right: 50, left: 50, bottom: 5}}>
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="date" tickFormatter={timestr => moment(timestr).format('MMM DD')}/>
-            <YAxis/>
+            <XAxis dataKey="date" tickFormatter={timestr => moment(timestr).format('MMM DD')} tick={{ fontFamily: 'Fira Code' }} interval={31}/>
+            <YAxis tick={{ fontFamily: 'Fira Code' }} domain={[0, ym]} allowDataOverflow={false}/>
             <Tooltip />
             <Line type="monotone" dataKey={vizType} stroke="#354052" activeDot={{ r: 4 }} dot={false}/>
-            <Area type="monotone" dataKey="CI" fill="#354052" stroke="#8884d8" opacity="0.3"/>
-            <ReferenceLine y={vizType === "Rt" ? 1 : 0} stroke="#8884d8" opacity={vizType === "Rt" ? 1.0 : 0.0}>
-            <Label value={vizType === "Rt" ? "CRITICAL" : ""} position="left" />
-            </ReferenceLine>
+            {vizType === "Rt" ? <Area type="monotone" dataKey="CI" fill="#354052" stroke="#8884d8" opacity="0.3"/> : ""}
+            {vizType === "Rt" ? <ReferenceLine y={1} stroke="#8884d8">
+                <Label value={"CRITICAL"} position="left" />
+            </ReferenceLine> : ""}
         </ComposedChart>
         </ResponsiveContainer>
         </>

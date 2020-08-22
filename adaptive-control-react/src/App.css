@@ -57,10 +57,9 @@ svg {
     width:100%;
 }
 
-svg text { 
-    /* font-family: "Fira Sans"!important; */
-    font-family: "Libre Franklin"!important;
-}
+/* svg text { 
+    font-family: "Helvetica"!important;
+} */
 
 
 .container {
@@ -69,8 +68,7 @@ svg text {
 
 
 .plot_window { 
-    /* font-family: "Fira Sans"; */
-    font-family: "Libre Franklin";
+    font-family: "Fira Code";
 }
 
 body { 

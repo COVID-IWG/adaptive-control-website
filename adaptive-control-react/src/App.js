@@ -63,7 +63,7 @@ export default class App extends React.Component {
                               onChange={(e) => {
                                 this.setState({ vizType: e.target.value });
                               }}>
-                            {/* <optgroup label="Charts"> */}
+                            <optgroup label="Charts">
                                 <option value="chart_Rt">Reproductive rate</option>
                                 <option value="chart_confirmed">Confirmed Infections</option> 
                                 <option value="chart_recovered">Recovered Cases</option>
@@ -73,11 +73,11 @@ export default class App extends React.Component {
                                 <option value="chart_recovery_rate">Recovery Rate</option>
                                 <option value="chart_active_per_mn">Active Per Million</option>
                                 <option value="chart_cfr">Case Fatality Rate</option>
-                              {/* </optgroup> */}
-                              {/* <optgroup label="Maps"> */}
-                                {/* <option value="map_status">Adaptive Control Status</option> */}
-                                {/* <option value="map_Rt">Reproductive rate</option> */}
-                              {/* </optgroup> */}
+                              </optgroup>
+                              <optgroup label="Maps">
+                                <option value="map_status">Adaptive Control Status</option>
+                                <option value="map_Rt">Reproductive Rate</option>
+                              </optgroup>
                             </Form.Control>
                           </Form.Group>
                         </Col>

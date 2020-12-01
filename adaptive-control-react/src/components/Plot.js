@@ -2,11 +2,132 @@ import React from "react";
 import {XAxis, YAxis, Tooltip, Line, CartesianGrid, ResponsiveContainer, Area, ComposedChart, ReferenceLine, Label} from "recharts";
 import moment from 'moment'
 
-// const pop_list = {"AN": 0.397, "AP": 52.221, "AR": 1.504, "AS": 34.293, "BR": 119.52, "CH": 1.179, "CT": 28.724,
-// "DN": 0.959, "DL": 19.814, "GA": 1.54, "GJ": 67.936, "HR": 28.672, "HP": 7.3, "JK": 13.203, "JH": 37.403, "KA": 65.798,
-// "KL": 35.125, "LA": 0.293, "LD": 0.064, "MP": 82.232, "MH": 122.153, "MN": 3.103, "ML": 3.224, "MZ": 1.192, "NL": 2.15,
-// "OR": 43.671, "PY": 1.504, "PB": 29.859, "RJ": 77.264, "SK": 0.664, "TN": 75.695, "TG": 37.22, "TR": 3.992, "UP": 224.979,
-// "UT": 11.141, "WB": 96.906, "TT": 1332.83};
+// FORGIVE ME 
+import TT_map_Rt from '../assets/Rt/TT_map_Rt.svg'
+import AP_map_Rt from '../assets/Rt/AP_map_Rt.svg'
+import AS_map_Rt from '../assets/Rt/AS_map_Rt.svg'
+import BR_map_Rt from '../assets/Rt/BR_map_Rt.svg'
+import CH_map_Rt from '../assets/Rt/CH_map_Rt.svg'
+import CT_map_Rt from '../assets/Rt/CT_map_Rt.svg'
+import DL_map_Rt from '../assets/Rt/DL_map_Rt.svg'
+import GA_map_Rt from '../assets/Rt/GA_map_Rt.svg'
+import GJ_map_Rt from '../assets/Rt/GJ_map_Rt.svg'
+import HP_map_Rt from '../assets/Rt/HP_map_Rt.svg'
+import HR_map_Rt from '../assets/Rt/HR_map_Rt.svg'
+import JH_map_Rt from '../assets/Rt/JH_map_Rt.svg'
+import KA_map_Rt from '../assets/Rt/KA_map_Rt.svg'
+import KL_map_Rt from '../assets/Rt/KL_map_Rt.svg'
+import MH_map_Rt from '../assets/Rt/MH_map_Rt.svg'
+import ML_map_Rt from '../assets/Rt/ML_map_Rt.svg'
+import MN_map_Rt from '../assets/Rt/MN_map_Rt.svg'
+import MP_map_Rt from '../assets/Rt/MP_map_Rt.svg'
+import NA_map_Rt from '../assets/Rt/NA_map_Rt.svg'
+import OR_map_Rt from '../assets/Rt/OR_map_Rt.svg'
+import PB_map_Rt from '../assets/Rt/PB_map_Rt.svg'
+import RJ_map_Rt from '../assets/Rt/RJ_map_Rt.svg'
+import SK_map_Rt from '../assets/Rt/SK_map_Rt.svg'
+import TG_map_Rt from '../assets/Rt/TG_map_Rt.svg'
+import TN_map_Rt from '../assets/Rt/TN_map_Rt.svg'
+import TR_map_Rt from '../assets/Rt/TR_map_Rt.svg'
+import UP_map_Rt from '../assets/Rt/UP_map_Rt.svg'
+import UT_map_Rt from '../assets/Rt/UT_map_Rt.svg'
+import WB_map_Rt from '../assets/Rt/WB_map_Rt.svg'
+
+import TT_map_status from '../assets/status/TT_map_status.svg'
+import AP_map_status from '../assets/status/AP_map_status.svg'
+import AS_map_status from '../assets/status/AS_map_status.svg'
+import BR_map_status from '../assets/status/BR_map_status.svg'
+import CH_map_status from '../assets/status/CH_map_status.svg'
+import CT_map_status from '../assets/status/CT_map_status.svg'
+import DL_map_status from '../assets/status/DL_map_status.svg'
+import GA_map_status from '../assets/status/GA_map_status.svg'
+import GJ_map_status from '../assets/status/GJ_map_status.svg'
+import HP_map_status from '../assets/status/HP_map_status.svg'
+import HR_map_status from '../assets/status/HR_map_status.svg'
+import JH_map_status from '../assets/status/JH_map_status.svg'
+import KA_map_status from '../assets/status/KA_map_status.svg'
+import KL_map_status from '../assets/status/KL_map_status.svg'
+import MH_map_status from '../assets/status/MH_map_status.svg'
+import ML_map_status from '../assets/status/ML_map_status.svg'
+import MN_map_status from '../assets/status/MN_map_status.svg'
+import MP_map_status from '../assets/status/MP_map_status.svg'
+import NA_map_status from '../assets/status/NA_map_status.svg'
+import OR_map_status from '../assets/status/OR_map_status.svg'
+import PB_map_status from '../assets/status/PB_map_status.svg'
+import RJ_map_status from '../assets/status/RJ_map_status.svg'
+import SK_map_status from '../assets/status/SK_map_status.svg'
+import TG_map_status from '../assets/status/TG_map_status.svg'
+import TN_map_status from '../assets/status/TN_map_status.svg'
+import TR_map_status from '../assets/status/TR_map_status.svg'
+import UP_map_status from '../assets/status/UP_map_status.svg'
+import UT_map_status from '../assets/status/UT_map_status.svg'
+import WB_map_status from '../assets/status/WB_map_status.svg'
+
+const mapImages = { 
+    "Rt": { 
+        "TT": TT_map_Rt,
+        "AP": AP_map_Rt,
+        "AS": AS_map_Rt,
+        "BR": BR_map_Rt,
+        "CH": CH_map_Rt,
+        "CT": CT_map_Rt,
+        "DL": DL_map_Rt,
+        "GA": GA_map_Rt,
+        "GJ": GJ_map_Rt,
+        "HP": HP_map_Rt,
+        "HR": HR_map_Rt,
+        "JH": JH_map_Rt,
+        "KA": KA_map_Rt,
+        "KL": KL_map_Rt,
+        "MH": MH_map_Rt,
+        "ML": ML_map_Rt,
+        "MN": MN_map_Rt,
+        "MP": MP_map_Rt,
+        "NA": NA_map_Rt,
+        "OR": OR_map_Rt,
+        "PB": PB_map_Rt,
+        "RJ": RJ_map_Rt,
+        "SK": SK_map_Rt,
+        "TG": TG_map_Rt,
+        "TN": TN_map_Rt,
+        "TR": TR_map_Rt,
+        "UP": UP_map_Rt,
+        "UT": UT_map_Rt,
+        "WB": WB_map_Rt
+    }, 
+
+    "status": { 
+        "TT": TT_map_status,
+        "AP": AP_map_status,
+        "AS": AS_map_status,
+        "BR": BR_map_status,
+        "CH": CH_map_status,
+        "CT": CT_map_status,
+        "DL": DL_map_status,
+        "GA": GA_map_status,
+        "GJ": GJ_map_status,
+        "HP": HP_map_status,
+        "HR": HR_map_status,
+        "JH": JH_map_status,
+        "KA": KA_map_status,
+        "KL": KL_map_status,
+        "MH": MH_map_status,
+        "ML": ML_map_status,
+        "MN": MN_map_status,
+        "MP": MP_map_status,
+        "NA": NA_map_status,
+        "OR": OR_map_status,
+        "PB": PB_map_status,
+        "RJ": RJ_map_status,
+        "SK": SK_map_status,
+        "TG": TG_map_status,
+        "TN": TN_map_status,
+        "TR": TR_map_status,
+        "UP": UP_map_status,
+        "UT": UT_map_status,
+        "WB": WB_map_status
+    }
+}
 
 export const state_codes = {
     // "AN": "Andaman and Nicobar Islands",
@@ -92,8 +213,17 @@ class Plot extends React.Component {
     render() { 
         if (this.state.data === null)
             return <p>l o a d i n g . . .</p>
-        var vizType = this.props.vizType.replace("chart_", "")
         var geography = this.props.geography
+        if (this.props.vizType.startsWith("map")) {
+            var mapType  = this.props.vizType.replace("map_", "");
+            console.log(mapType)
+            console.log(geography)
+            console.log(mapImages[mapType])
+            return <>
+                <img src = {mapImages[mapType][geography]} alt = {"map"}></img>
+            </>
+        }
+        var vizType = this.props.vizType.replace("chart_", "")
         var data = this.state.data.get(geography);
         var ym = ymax[vizType] || 'dataMax'
         return <>

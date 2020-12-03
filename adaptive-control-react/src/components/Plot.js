@@ -64,7 +64,7 @@ import UT_map_status from '../assets/status/UT_map_status.svg'
 import WB_map_status from '../assets/status/WB_map_status.svg'
 
 const mapImages = { 
-    "Rt": { 
+    "Rt": {
         "TT": TT_map_Rt,
         "AP": AP_map_Rt,
         "AS": AS_map_Rt,

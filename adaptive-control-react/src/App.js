@@ -4,7 +4,7 @@ import { Row, Col } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 
-import Plot, { state_codes } from "./components/Plot.js";
+import Plot from "./components/Plot.js";
 import { Details } from "./components/Details.js";
 import StaticBoxes from "./components/StaticBoxes.js"
 import Header from "./components/Header.js"
@@ -13,7 +13,7 @@ import cardHeader from "./utils.js";
 
 export default class App extends React.Component {
   state = {
-    vizType: "chart_Rt",
+    vizType: "chart_confirmed",
     geography: "TT",
   };
 
@@ -42,12 +42,9 @@ export default class App extends React.Component {
                               onChange={(e) => {
                                 this.setState({ geography: e.target.value });
                               }}>
-                              <option value="TT">All India</option>
-                              <optgroup label="States">
-                                {Object.keys(state_codes).map((k) => (
-                                  <option key={k} value={k}>{state_codes[k]}</option>
-                                ))}
-                              </optgroup>
+                              <option value="TT">All Indonesia</option>
+                              <option value="JK">Jakarta</option>
+                              <option value="SS">South Sulawesi</option>
                             </Form.Control>
                           </Form.Group>
                         </Col>
@@ -63,29 +60,17 @@ export default class App extends React.Component {
                               onChange={(e) => {
                                 this.setState({ vizType: e.target.value });
                               }}>
-                            <optgroup label="Charts">
-                                <option value="chart_Rt">Reproductive rate</option>
                                 <option value="chart_confirmed">Confirmed Infections</option> 
-                                <option value="chart_recovered">Recovered Cases</option>
-                                <option value="chart_deceased">Deceased Cases</option>
-                                <option value="chart_tested">Number Tested</option>
-                                <option value="chart_infection_rate">Infection Rate</option>
-                                <option value="chart_recovery_rate">Recovery Rate</option>
-                                <option value="chart_active_per_mn">Active Per Million</option>
-                                <option value="chart_cfr">Case Fatality Rate</option>
-                              </optgroup>
-                              <optgroup label="Maps">
-                                <option value="map_status">Adaptive Control Status</option>
-                                <option value="map_Rt">Reproductive Rate</option>
-                              </optgroup>
+                                <option value="chart_Rt">Reproductive Rate (time series)</option>
+                                <option value="map_Rt">Reproductive Rate (map)</option>
                             </Form.Control>
                           </Form.Group>
                         </Col>
                       </Row>
+                        <Plot vizType={this.state.vizType} geography={this.state.geography}/>
                     </Form>
                   </div>
                     </Card.Body>
-                  <Plot vizType={this.state.vizType} geography={this.state.geography}/>
               </Card>
             </Col>
             <Col sm={4}>

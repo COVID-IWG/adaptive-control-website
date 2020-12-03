@@ -9,7 +9,7 @@ const Header = () => <>
     </h1>
     <Card.Subtitle as="h3" className="text-light">
         {" "}
-        Tracking disease and recommending control efforts across states and districts
+        Tracking disease and recommending control efforts across provinces.
       </Card.Subtitle>
       <hr />
       <div className="bg-light rounded">
